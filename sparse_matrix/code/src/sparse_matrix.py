@@ -87,13 +87,14 @@ class SparseMatrix:
 
 
 if __name__ == "__main__":
-    matrix1 = SparseMatrix(matrix_file='/dsa/sparse_matrix/sample_inputs/easy_sample_01_2.txt')
-    matrix2 = SparseMatrix(matrix_file='/dsa/sparse_matrix/sample_inputs/easy_sample_03_1.txt')
+    matrix1 = SparseMatrix(matrix_file='./sample_inputs/easy_sample_01_2.txt')
+    matrix2 = SparseMatrix(matrix_file='./sample_inputs/easy_sample_03_1.txt')
 
     print("Choose a matrix operation:")
     print("1. Add Matrices")
     print("2. Subtract Matrices")
     print("3. Multiply Matrices")
+    
     choice = int(input("Enter your choice (1/2/3): "))
 
     if choice == 1:
@@ -109,5 +110,8 @@ if __name__ == "__main__":
         print("Invalid choice. Please enter 1, 2, or 3.")
 
     output_file = 'result.txt'
-if not output_file.startswith('./sparse_matrix/results/'):
-    output_file = './sparse_matrix/results/' + output_file
+    if not output_file.startswith('./sparse_matrix/results/'):
+        output_file = './sparse_matrix/results/' + output_file
+        
+    result.save_to_file(output_file)
+    print("Result saved to {}".format(output_file))
