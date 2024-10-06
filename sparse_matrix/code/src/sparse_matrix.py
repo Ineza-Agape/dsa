@@ -40,47 +40,47 @@ class SparseMatrix:
         self.matrix[row][col] = value
 
     def add(self, other_matrix):
-    print("Adding matrices...")
-    result = SparseMatrix(numRows=self.numRows, numCols=self.numCols)
+        print("Adding matrices...")
+        result = SparseMatrix(numRows=self.numRows, numCols=self.numCols)
 
-    for row in range(self.numRows):
-        for col in range(self.numCols):
-            sum_value = self.get_element(row, col) + other_matrix.get_element(row, col)
-            result.set_element(row, col, sum_value)
-    
-    print("Addition complete.")
-    return result
+        for row in range(self.numRows):
+            for col in range(self.numCols):
+                sum_value = self.get_element(row, col) + other_matrix.get_element(row, col)
+                result.set_element(row, col, sum_value)
+        
+        print("Addition complete.")
+        return result
 
-def subtract(self, other_matrix):
-    print("Subtracting matrices...")
-    result = SparseMatrix(numRows=self.numRows, numCols=self.numCols)
+    def subtract(self, other_matrix):
+        print("Subtracting matrices...")
+        result = SparseMatrix(numRows=self.numRows, numCols=self.numCols)
 
-    for row in range(self.numRows):
-        for col in range(self.numCols):
-            difference_value = self.get_element(row, col) - other_matrix.get_element(row, col)
-            result.set_element(row, col, difference_value)
-    
-    print("Subtraction complete.")
-    return result
+        for row in range(self.numRows):
+            for col in range(self.numCols):
+                difference_value = self.get_element(row, col) - other_matrix.get_element(row, col)
+                result.set_element(row, col, difference_value)
+        
+        print("Subtraction complete.")
+        return result
 
-def multiply(self, other_matrix):
-    if self.numCols != other_matrix.numRows:
-        raise ValueError("Matrix multiplication not possible with incompatible sizes.")
+    def multiply(self, other_matrix):
+        if self.numCols != other_matrix.numRows:
+            raise ValueError("Matrix multiplication not possible with incompatible sizes.")
 
-    print("Multiplying matrices...")
-    result = SparseMatrix(numRows=self.numRows, numCols=other_matrix.numCols)
+        print("Multiplying matrices...")
+        result = SparseMatrix(numRows=self.numRows, numCols=other_matrix.numCols)
 
-    for row in self.matrix:
-        for col in other_matrix.matrix:
-            if col in self.matrix[row]:
-                value_sum = sum(
-                    self.get_element(row, k) * other_matrix.get_element(k, col)
-                    for k in range(self.numCols)
-                )
-                result.set_element(row, col, value_sum)
-    
-    print("Multiplication complete.")
-    return result
+        for row in self.matrix:
+            for col in other_matrix.matrix:
+                if col in self.matrix[row]:
+                    value_sum = sum(
+                        self.get_element(row, k) * other_matrix.get_element(k, col)
+                        for k in range(self.numCols)
+                    )
+                    result.set_element(row, col, value_sum)
+        
+        print("Multiplication complete.")
+        return result
 
     def save_to_file(self, file_path):
         with open(file_path, 'w') as file:
