@@ -90,6 +90,14 @@ class SparseMatrix:
             for row in self.matrix:
                 for col, value in self.matrix[row].items():
                     file.write("({}, {}, {})\n".format(row, col, value))
+    def __str__(self):
+        result = []
+        for row in range(self.numRows):
+            row_str = []
+            for col in range(self.numCols):
+                row_str.append(str(self.get_element(row, col)))
+            result.append(" ".join(row_str))
+        return "\n".join(result)
 
 
 if __name__ == "__main__":
@@ -106,12 +114,18 @@ if __name__ == "__main__":
     if choice == 1:
         result = matrix1.add(matrix2)
         print("Matrices added successfully!")
+        print("Resulting Matrix:")
+        print(result)
     elif choice == 2:
         result = matrix1.subtract(matrix2)
         print("Matrices subtracted successfully!")
+        print("Resulting Matrix:")
+        print(result)
     elif choice == 3:
         result = matrix1.multiply(matrix2)
         print("Matrices multiplied successfully!")
+        print("Resulting Matrix:")
+        print(result)
     else:
         print("Invalid choice. Please enter 1, 2, or 3.")
 
