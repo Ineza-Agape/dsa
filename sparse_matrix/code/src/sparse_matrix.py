@@ -87,8 +87,8 @@ class SparseMatrix:
 
 
 if __name__ == "__main__":
-    matrix1 = SparseMatrix(matrix_file='./sample_inputs/easy_sample_01_2.txt')
-    matrix2 = SparseMatrix(matrix_file='./sample_inputs/easy_sample_03_1.txt')
+    matrix1 = SparseMatrix(matrix_file='/dsa/sparse_matrix/sample_inputs/easy_sample_01_2.txt')
+    matrix2 = SparseMatrix(matrix_file='/dsa/sparse_matrix/sample_inputs/easy_sample_03_1.txt')
 
     print("Choose a matrix operation:")
     print("1. Add Matrices")
