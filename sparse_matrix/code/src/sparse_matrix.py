@@ -99,6 +99,8 @@ class SparseMatrix:
             result.append(" ".join(row_str))
         return "\n".join(result)
 
+import os
+
 
 if __name__ == "__main__":
     matrix1 = SparseMatrix(matrix_file='/dsa/sparse_matrix/sample_inputs/easy_sample_01_2.txt')
@@ -114,24 +116,26 @@ if __name__ == "__main__":
     if choice == 1:
         result = matrix1.add(matrix2)
         print("Matrices added successfully!")
-        print("Resulting Matrix:")
-        print(result)
     elif choice == 2:
         result = matrix1.subtract(matrix2)
         print("Matrices subtracted successfully!")
-        print("Resulting Matrix:")
-        print(result)
     elif choice == 3:
         result = matrix1.multiply(matrix2)
         print("Matrices multiplied successfully!")
-        print("Resulting Matrix:")
-        print(result)
     else:
         print("Invalid choice. Please enter 1, 2, or 3.")
 
-    output_file = 'result.txt'
-    if not output_file.startswith('./sparse_matrix/results/'):
-        output_file = './sparse_matrix/results/' + output_file
-        
-    result.save_to_file(output_file)
-    print("Result saved to {}".format(output_file))
+    output_dir = "./sparse_matrix/results"
+    
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    output_file_path = os.path.join(output_dir, "result.txt")
+
+    print("Saving result to:", output_file_path)
+
+    if not result.matrix:
+        print("Resulting matrix is empty, nothing to save.")
+    else:
+        result.save_to_file(output_file_path)
+        print("Result written to {}".format(output_file_path))
