@@ -108,6 +108,6 @@ if __name__ == "__main__":
     else:
         print("Invalid choice. Please enter 1, 2, or 3.")
 
-    output_file = input("Enter the output file path to save the result: ")
-    result.save_to_file(output_file)
-    print("Result saved to {}.".format(output_file))
+    output_file = 'result.txt'
+if not output_file.startswith('./sparse_matrix/results/'):
+    output_file = './sparse_matrix/results/' + output_file
